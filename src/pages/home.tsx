@@ -17,7 +17,7 @@ const Home = (props: Props) => {
     const [count, setCount] = useState<number>(0)
     const [input, setInput] = useState<string>("")
     let [switchs, setSwitchs] = useState<boolean>(false);
-
+    const [favorites, setFavorites] = useState<boolean>(false);
     function clear() {
         setSwitchs(false);
         setInput("");
@@ -36,7 +36,10 @@ const Home = (props: Props) => {
     function handleChangeSwitch() {
         setSwitchs((prevSwitch) => !prevSwitch)
     }
-
+    function handleChangeFavorites() {
+        setFavorites((prevFavorites) => !prevFavorites);
+      }
+    
 
 
     return (
@@ -61,10 +64,17 @@ const Home = (props: Props) => {
                 <Input variant='filled' placeholder='Filled' value={input} onChange={handleChangeInput} />
                 <Text>{input}</Text>
 
-                {hobbies.map((hobby) => {
-                    return <text key={hobby.name}>{hobby.name}</text>
-                })}
+                <HStack>
+                    <Text>Non favories</Text>
+                    <Switch isChecked={favorites} onChange={handleChangeFavorites} />
+                    <Text>Favories</Text>
+                </HStack>
 
+                {hobbies
+                    .filter((hobby) => hobby.isFavorite === favorites)
+                    .map((hobby) => (
+                        <Text key={hobby.name}>{hobby.name}</Text>
+                    ))}
             </VStack>
 
         </>

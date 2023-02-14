@@ -16,7 +16,6 @@ const Navbar = (props: Props) => {
 
                 </Box>
                 <Spacer />
-                <Text>{user.username}</Text>
                 <NavLinksComponent />
             </Flex>
         </>

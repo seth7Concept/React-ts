@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const NavLinksComponent = () => {
     const [loginAuth, setloginAuth] = useState<boolean>(false);
-const toggledLogin = () => {
+const toggleAuth = () => {
     setloginAuth((prev) => !prev);
 }
 
@@ -14,11 +14,11 @@ const toggledLogin = () => {
             {loginAuth ? (
                 <>
                     <Button colorScheme={"messenger"}> Home </Button>
-                    <Button colorScheme={"messenger"}> Logout </Button>
+                    <Button colorScheme={"messenger"}onClick={toggleAuth}> Logout </Button>
                 </>
             ) : (
                 <>
-                    <Button colorScheme={"messenger"} onClick={toggledLogin} > Login </Button>
+                    <Button colorScheme={"messenger"} onClick={toggleAuth} > Login </Button>
                     <Button colorScheme={"messenger"}> Sign up </Button>
 
                 </>
