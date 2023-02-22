@@ -1,5 +1,6 @@
 import { Button, ButtonGroup, FormLabel, Switch } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const NavLinksComponent = () => {
     const [theme, setTheme] = useState<boolean>(false);
@@ -7,7 +8,13 @@ const NavLinksComponent = () => {
     const toggleAuth = () => {
         setloginAuth((prev) => !prev);
     }
+    const location = useLocation();
 
+    useEffect(() => {
+        if (location.state) {
+            toggleAuth()
+        }
+    }, [location])
 
     function changeTheme() {
         const newTheme = !theme;
@@ -29,14 +36,19 @@ const NavLinksComponent = () => {
 
     return (
         <ButtonGroup gap='2' alignItems='center'>
+
+
+
             {loginAuth ? (
                 <>
-                    <Button colorScheme={"messenger"}> Home </Button>
-                    <Button colorScheme={"messenger"} onClick={toggleAuth}> Logout </Button>
+                    <Button colorScheme={"messenger"}><Link to="/posts">post</Link> </Button>
+                    <Button colorScheme={"messenger"}> <Link to="/about">about</Link> </Button>
+                    <Button colorScheme={"messenger"}> <Link to="/">Home</Link> </Button>
+                    <Button colorScheme={"messenger"} onClick={toggleAuth}><Link to="/register">Sign up</Link> </Button>
                 </>
             ) : (
                 <>
-                    <Button colorScheme={"messenger"} onClick={toggleAuth} > Login </Button>
+                    <Button colorScheme={"messenger"} > <Link to="/login">Login</Link> </Button>
                     <Button colorScheme={"messenger"}> Sign up </Button>
                 </>
             )}

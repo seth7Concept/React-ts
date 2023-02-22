@@ -26,9 +26,9 @@ const Home = (props: Props) => {
     function increment() {
         setCount(prevCount => prevCount + parsedInput);
     }
-      function multiplication() {
-    setCount((prevCount) => prevCount * parseInt(input));
-  }
+    function multiplication() {
+        setCount((prevCount) => prevCount * parseInt(input));
+    }
     function handleChangeInput(event: React.ChangeEvent<HTMLInputElement>) {
         setInput(event.target.value)
     }
@@ -39,16 +39,14 @@ const Home = (props: Props) => {
         setFavorites((prevFavorites) => !prevFavorites);
     }
 
-    useEffect(() => {
-        console.log('HELLO')
-    }, [count, switchs])
+    // useEffect(() => {
+    //     console.log('')
+    // }, [count, switchs])
 
 
     useEffect(() => {
         setParsedInput(parseInt(input))
     }, [input])
-
-
     return (
         <>
             <VStack>
@@ -65,7 +63,7 @@ const Home = (props: Props) => {
 
                 </HStack>
                 <Input variant='filled' placeholder='Filled' value={input} onChange={handleChangeInput} />
-                <Text>{input}</Text>
+                {/* <Text>{input}</Text> */}
 
                 <HStack>
                     <Text>Non favories</Text>

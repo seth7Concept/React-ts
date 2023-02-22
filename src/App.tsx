@@ -1,42 +1,32 @@
-import { Center, Container } from "@chakra-ui/react";
-import { useEffect } from "react";
-import Navbar from "./components/Navbar";
+import { Route, Routes } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
+import About from "./pages/About";
 import Home from "./pages/home";
-import { Hobby, User } from "./types";
-
+import Login from "./pages/login";
+import Posts from "./pages/Posts";
+import Register from "./pages/register";
+import { Hobby } from "./types";
 
 
 
 const App = () => {
-  const user: User = {
-    id: 1,
-    username: "quentin",
-    isAdmin: true,
-  };
-
   const hobbies: Hobby[] = [
     { name: "Graphisme", isFavorite: true },
     { name: "Music", isFavorite: true },
     { name: "Sport", isFavorite: false },
   ]
 
-
-
-  useEffect(() => {
-    console.log("coucou")
-  }, [])
-
   return (
     <>
-
-      <Navbar user={user} />
-      <Container maxW="full" p={4}>
-        <Center>
-          <Home hobbies={hobbies} />
-        </Center>
-
-      </Container>
-
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home hobbies={hobbies} />} />
+          <Route path="about" element={<About />} />
+          <Route path="posts" element={<Posts />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+      </Routes>
     </>
   )
 }
