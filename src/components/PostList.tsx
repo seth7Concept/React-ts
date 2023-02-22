@@ -1,5 +1,6 @@
 import { HStack, Input, Text, UnorderedList, VStack } from "@chakra-ui/react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Post } from "../types";
 type Props = {
     posts: Post[]
@@ -23,7 +24,14 @@ const PostList = (props: Props) => {
                 <HStack>
                     <Input variant='filled' placeholder='Search' onChange={handleSearch} />
                 </HStack>
-                {filteredPosts.map((post) => (<Text key={post.id}>{post.title}</Text>))}
+                {filteredPosts.map((post) => (
+                    <Text key={post.id}>
+                        <Link to={`/posts/${post.id}`}>{post.id}. {post.title}</Link>
+                    </Text>
+                ))}
+                {/* {filteredPosts.map((post) => (
+                    <Text key={post.id}> <Link to={`/post/${post.id}`}> {post.id}</Link>-</Text>)
+                    )} */}
             </VStack>
         </UnorderedList>
     )

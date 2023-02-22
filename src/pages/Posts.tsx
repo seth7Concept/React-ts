@@ -1,4 +1,3 @@
-import { Heading } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import PostList from "../components/PostList";
@@ -15,7 +14,6 @@ const Posts = () => {
   }, []);
   return (
     <>
-      <Heading>Posts</Heading>
       <PostList posts={posts} />
     </>
   )

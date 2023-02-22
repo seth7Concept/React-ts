@@ -4,10 +4,10 @@ import { Heading } from "@chakra-ui/react"
 
 
 const About = () => {
-    
+
   return (
     <>
-     <Heading>About</Heading>
+      <Heading>About</Heading>
     </>
   )
 }

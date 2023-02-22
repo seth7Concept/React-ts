@@ -1,0 +1,94 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #181920;
+    color: #fff;
+    
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+form {
+    background-color: #1D1E28;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.285);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #242430;
+    border: 1px solid #36393F;
+    color: #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: 0;
+    border: 2px solid #9a25dd;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #9a25dd;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a740e1;
+}
+
+.error {
+    border: red;
+    color: red;
+    font-style: italic;
+}
+
+/* Style spécifique pour les messages d'erreur */
+input.error,
+select.error,
+textarea.error {
+    border: 1px solid red;
+}
+
+.error-message {
+    margin: -0.5rem 0 15px 0;
+    color: red;
+    font-style: italic;
+
+}
+
+label{
+    margin: 0 0 -0.5rem 0;
+}
+
+.inscripion{
+    height: 50px;
+    width: 250px;
+    background-color: #242430;
+}
